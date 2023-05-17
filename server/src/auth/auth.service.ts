@@ -8,7 +8,6 @@ export class AuthService {
 
   async validateUser(username: string, password: string) {
     const user = await this.usersService.findOne({ where: { username } });
-
     if (!user) {
       throw new UnauthorizedException('Invalid Credentials');
     }

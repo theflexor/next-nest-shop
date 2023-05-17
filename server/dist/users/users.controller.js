@@ -18,6 +18,8 @@ const users_service_1 = require("./users.service");
 const create_user_dto_1 = require("./dto/create-user.dto");
 const local_auth_guard_1 = require("../auth/local.auth.guard");
 const authenticated_guard_1 = require("../auth/authenticated.guard");
+const swagger_1 = require("@nestjs/swagger");
+const types_1 = require("./types");
 let UsersController = class UsersController {
     constructor(userService) {
         this.userService = userService;
@@ -37,6 +39,7 @@ let UsersController = class UsersController {
     }
 };
 __decorate([
+    (0, swagger_1.ApiBody)({ type: types_1.SignupUserResponse }),
     (0, common_1.Post)('/signup'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     (0, common_1.Header)('Content-type', 'application/json'),
@@ -46,6 +49,8 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "createUser", null);
 __decorate([
+    (0, swagger_1.ApiBody)({ type: types_1.LoginUserRequest }),
+    (0, swagger_1.ApiOkResponse)({ type: types_1.LoginUserResponse }),
     (0, common_1.Post)('/login'),
     (0, common_1.UseGuards)(local_auth_guard_1.LocalAuthGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
@@ -55,6 +60,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "login", null);
 __decorate([
+    (0, swagger_1.ApiBody)({ type: types_1.LoginCheckResponse }),
     (0, common_1.Get)('/login-check'),
     (0, common_1.UseGuards)(authenticated_guard_1.AuthenticatedGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
@@ -64,6 +70,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "loginCheck", null);
 __decorate([
+    (0, swagger_1.ApiBody)({ type: types_1.LogoutUserResponse }),
     (0, common_1.Get)('/logout'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Request)()),

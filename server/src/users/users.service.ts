@@ -17,7 +17,6 @@ export class UsersService {
     const existingByUserName = await this.findOne({
       where: { username: createUserDto.username },
     });
-
     const existingByUserEmail = await this.findOne({
       where: { username: createUserDto.email },
     });
