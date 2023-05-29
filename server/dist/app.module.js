@@ -14,6 +14,8 @@ const sequelize_1 = require("@nestjs/sequelize");
 const config_1 = require("@nestjs/config");
 const configuration_1 = require("./config/configuration");
 const auth_module_1 = require("./auth/auth.module");
+const boiler_parts_module_1 = require("./boiler-parts/boiler-parts.module");
+const shopping_cart_module_1 = require("./shopping-cart/shopping-cart.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,6 +30,8 @@ AppModule = __decorate([
             }),
             users_module_1.UsersModule,
             auth_module_1.AuthModule,
+            boiler_parts_module_1.BoilerPartsModule,
+            shopping_cart_module_1.ShoppingCartModule,
         ],
     })
 ], AppModule);
